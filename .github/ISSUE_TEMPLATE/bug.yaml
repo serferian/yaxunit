@@ -1,0 +1,63 @@
+name: '🐞 Ошибка'
+description: 'Регистрация обнаруженной ошибки'
+title: '[Bug]: '
+labels: ['bug']
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: '🐞 Описание ошибки'
+      description: 'Опишите проблему и шаги воспроизведения'
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Пример кода
+      description: 'Код, который приводит к возникновению ошибки'
+      render: bsl
+
+  - type: textarea
+    attributes:
+      label: Текст ошибки (лог)
+      render: txt
+
+  - type: input
+    id: yaxunit-version
+    attributes:
+      label: Версия YaxUnit
+
+  - type: input
+    attributes:
+      label: Версия 1С:Предприятие
+
+  - type: dropdown
+    id: run-mode
+    attributes:
+      label: Режим запуска 1С:Предприятие
+      multiple: true
+      options:
+        - Тонкий клиент. Управляемое приложение
+        - Толстый клиент. Управляемое приложение
+        - Обычное приложение
+        - Web-клиент
+
+  - type: dropdown
+    id: base-mode
+    attributes:
+      label: Тип информационной базы
+      multiple: true
+      options:
+        - Клиент-серверная
+        - Файловая
+
+  - type: dropdown
+    id: operating-systems
+    attributes:
+      label: Операционная система
+      multiple: true
+      options:
+        - Linux
+        - Windows
+        - Mac
+        - Other

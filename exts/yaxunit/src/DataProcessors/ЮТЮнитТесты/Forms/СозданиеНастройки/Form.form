@@ -284,6 +284,7 @@
         </userVisible>
         <autoFill>true</autoFill>
       </contextMenu>
+      <source>ДеревоТестовСтрокаПоиска</source>
       <extInfo xsi:type="form:SearchStringAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
       </extInfo>
@@ -322,6 +323,7 @@
         <autoFill>true</autoFill>
       </contextMenu>
       <type>ViewStatusAddition</type>
+      <source>ДеревоТестовСостояниеПросмотра</source>
       <extInfo xsi:type="form:ViewStatusAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
       </extInfo>
@@ -360,6 +362,7 @@
         <autoFill>true</autoFill>
       </contextMenu>
       <type>SearchControlAddition</type>
+      <source>ДеревоТестовУправлениеПоиском</source>
       <extInfo xsi:type="form:SearchControlAdditionExtInfo">
         <autoMaxWidth>true</autoMaxWidth>
       </extInfo>
@@ -467,8 +470,60 @@
         <autoMaxHeight>true</autoMaxHeight>
         <wrap>true</wrap>
         <choiceButton>true</choiceButton>
-        <openButton>true</openButton>
         <autoMarkIncomplete>true</autoMarkIncomplete>
+        <chooseType>true</chooseType>
+        <typeDomainEnabled>true</typeDomainEnabled>
+        <textEdit>true</textEdit>
+      </extInfo>
+    </items>
+    <items xsi:type="form:FormField">
+      <name>КаталогПроекта</name>
+      <id>106</id>
+      <visible>true</visible>
+      <enabled>true</enabled>
+      <userVisible>
+        <common>true</common>
+      </userVisible>
+      <dataPath xsi:type="form:DataPath">
+        <segments>КаталогПроекта</segments>
+      </dataPath>
+      <extendedTooltip>
+        <name>КаталогПроектаРасширеннаяПодсказка</name>
+        <id>108</id>
+        <visible>true</visible>
+        <enabled>true</enabled>
+        <userVisible>
+          <common>true</common>
+        </userVisible>
+        <type>Label</type>
+        <autoMaxWidth>true</autoMaxWidth>
+        <autoMaxHeight>true</autoMaxHeight>
+        <extInfo xsi:type="form:LabelDecorationExtInfo">
+          <horizontalAlign>Left</horizontalAlign>
+        </extInfo>
+      </extendedTooltip>
+      <contextMenu>
+        <name>КаталогПроектаКонтекстноеМеню</name>
+        <id>107</id>
+        <visible>true</visible>
+        <enabled>true</enabled>
+        <userVisible>
+          <common>true</common>
+        </userVisible>
+        <autoFill>true</autoFill>
+      </contextMenu>
+      <type>InputField</type>
+      <editMode>Enter</editMode>
+      <showInHeader>true</showInHeader>
+      <headerHorizontalAlign>Left</headerHorizontalAlign>
+      <showInFooter>true</showInFooter>
+      <extInfo xsi:type="form:InputFieldExtInfo">
+        <handlers>
+          <event>StartChoice</event>
+          <name>КаталогПроектаНачалоВыбора</name>
+        </handlers>
+        <wrap>true</wrap>
+        <choiceButton>true</choiceButton>
         <chooseType>true</chooseType>
         <typeDomainEnabled>true</typeDomainEnabled>
         <textEdit>true</textEdit>
@@ -490,7 +545,7 @@
         </dataPath>
         <extendedTooltip>
           <name>ОтобразитьОтчетРасширеннаяПодсказка</name>
-          <id>71</id>
+          <id>30</id>
           <visible>true</visible>
           <enabled>true</enabled>
           <userVisible>
@@ -709,33 +764,6 @@
             <chooseType>true</chooseType>
             <typeDomainEnabled>true</typeDomainEnabled>
             <textEdit>true</textEdit>
-            <choiceList>
-              <presentation>
-                <key>ru</key>
-                <value>Отладка</value>
-              </presentation>
-              <value xsi:type="core:StringValue">
-                <value>debug</value>
-              </value>
-            </choiceList>
-            <choiceList>
-              <presentation>
-                <key>ru</key>
-                <value>Информация</value>
-              </presentation>
-              <value xsi:type="core:StringValue">
-                <value>info</value>
-              </value>
-            </choiceList>
-            <choiceList>
-              <presentation>
-                <key>ru</key>
-                <value>Ошибки</value>
-              </presentation>
-              <value xsi:type="core:StringValue">
-                <value>error</value>
-              </value>
-            </choiceList>
           </extInfo>
         </items>
         <items xsi:type="form:FormField">
@@ -1233,6 +1261,10 @@
     <event>OnOpen</event>
     <name>ПриОткрытии</name>
   </handlers>
+  <handlers>
+    <event>BeforeClose</event>
+    <name>ПередЗакрытием</name>
+  </handlers>
   <autoSaveDataInSettings>Use</autoSaveDataInSettings>
   <autoUrl>true</autoUrl>
   <group>Vertical</group>
@@ -1371,6 +1403,9 @@
     <edit>
       <common>true</common>
     </edit>
+    <settingsSavedData xsi:type="form:DataPath">
+      <segments>ПараметрыЗапуска</segments>
+    </settingsSavedData>
   </attributes>
   <attributes>
     <name>ЗапускИзКонфигуратор</name>
@@ -1491,6 +1526,9 @@
     <edit>
       <common>true</common>
     </edit>
+    <settingsSavedData xsi:type="form:DataPath">
+      <segments>ЛогированиеВКонсоль</segments>
+    </settingsSavedData>
   </attributes>
   <attributes>
     <name>ФорматОтчета</name>
@@ -1509,6 +1547,9 @@
     <edit>
       <common>true</common>
     </edit>
+    <settingsSavedData xsi:type="form:DataPath">
+      <segments>ФорматОтчета</segments>
+    </settingsSavedData>
   </attributes>
   <attributes>
     <name>УровеньЛога</name>
@@ -1527,6 +1568,9 @@
     <edit>
       <common>true</common>
     </edit>
+    <settingsSavedData xsi:type="form:DataPath">
+      <segments>УровеньЛога</segments>
+    </settingsSavedData>
   </attributes>
   <attributes>
     <name>ЗакрытьПослеТестирования</name>
@@ -1544,6 +1588,30 @@
     <edit>
       <common>true</common>
     </edit>
+    <settingsSavedData xsi:type="form:DataPath">
+      <segments>ЗакрытьПослеТестирования</segments>
+    </settingsSavedData>
+  </attributes>
+  <attributes>
+    <name>КаталогПроекта</name>
+    <title>
+      <key>ru</key>
+      <value>Каталог проекта</value>
+    </title>
+    <id>71</id>
+    <valueType>
+      <types>String</types>
+      <stringQualifiers/>
+    </valueType>
+    <view>
+      <common>true</common>
+    </view>
+    <edit>
+      <common>true</common>
+    </edit>
+    <settingsSavedData xsi:type="form:DataPath">
+      <segments>КаталогПроекта</segments>
+    </settingsSavedData>
   </attributes>
   <formCommands>
     <name>УстановитьФлажки</name>

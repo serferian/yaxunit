@@ -1,14 +1,13 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+import {themes as prismThemes} from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'YAx Unit',
   tagline: 'Модульные тесты для 1С - это не сложно',
-  favicon: 'img/logo.png',
+  favicon: 'img/logo.svg',
 
   // Set the production url of your site here
   url: 'https://bia-technologies.github.io/',
@@ -29,8 +28,8 @@ const config = {
   // metadata like html lang. For example, if your site is Chinese, you may want
   // to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: 'ru',
+    locales: ['ru'],
   },
 
   presets: [
@@ -44,10 +43,11 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/bia-technologies/yaxunit/',
+            'https://github.com/bia-technologies/yaxunit/blob/develop/documentation/',
         },
         blog: {
-          blogTitle: 'Заметки'
+          blogTitle: 'Заметки',
+          onUntruncatedBlogPosts: 'ignore'
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -95,13 +95,13 @@ const config = {
       navbar: {
         title: 'YAx Unit',
         logo: {
-          alt: 'YaxUnit Logo',
-          src: 'img/logo.png',
+          alt: 'YAxUnit Logo',
+          src: 'img/logo.svg',
         },
         items: [
           {
             type: 'doc',
-            docId: 'user-api/index',
+            docId: 'features/features',
             position: 'left',
             label: 'Описание',
           },
@@ -142,7 +142,7 @@ const config = {
             items: [
               {
                 label: 'Tutorial',
-                to: '/docs/user-api',
+                to: '/docs/features',
               },
             ],
           },
@@ -168,14 +168,31 @@ const config = {
         copyright: `Copyright © ${new Date().getFullYear()} BIA Technologies, Inc. Built with Docusaurus.`,
       },
       prism: {
-        theme: lightCodeTheme,
-        darkTheme: darkCodeTheme,
+        theme: prismThemes.vsLight,
+        darkTheme: prismThemes.vsDark,
+        additionalLanguages: ['bsl', 'json'],
+      },
+      docs: {
+        sidebar: {
+          hideable: true,
+          autoCollapseCategories: true,
+        },
       },
     }),
     markdown: {
       mermaid: true,
     },
-    themes: ['@docusaurus/theme-mermaid'],
+    themes: ['@docusaurus/theme-mermaid', 
+    ["@easyops-cn/docusaurus-search-local", {
+      hashed: true,
+      language: ["en", "ru"],
+      indexBlog: false,
+      indexDocs: true,
+      docsRouteBasePath: ["docs", "api", 'contributing', 'lessons'],
+      docsDir: ["docs", "api", 'contributing', 'lessons'],
+      highlightSearchTermsOnTargetPage: true,
+      hideSearchBarWithNoSearchContext: true,
+    }]],
 };
 
 module.exports = config;
